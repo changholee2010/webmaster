@@ -19,6 +19,7 @@ import com.yedam.vo.Member;
 // 응답정보를 전송.
 // http 프로토콜을 데이터 전송 수신.
 // HttpServlet 상속 기능 구현.
+
 @WebServlet("/MemberAddServlet")
 public class MemberAddServlet extends HttpServlet {
 
