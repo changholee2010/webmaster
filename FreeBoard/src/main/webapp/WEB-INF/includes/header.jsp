@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,8 +23,15 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberList.do">회원목록</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberAddForm.do">회원등록화면</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">게시글목록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addBoardForm.do">게시글등록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                    <c:choose>
+                     <c:when test="${empty logId }">
+                      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인 페이지</a>
+                     </c:when>
+                     <c:otherwise>
+                      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addBoardForm.do">게시글등록</a>
+                      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logOut.do">로그아웃(${logId })</a>
+                     </c:otherwise>
+                    </c:choose>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
                 </div>
             </div>

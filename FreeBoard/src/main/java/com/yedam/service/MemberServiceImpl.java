@@ -30,4 +30,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.members();
 	}
 
+	@Override
+	public MemberVO loginCheck(String id, String pw) {
+		return mapper.loginMember(id, pw);
+	}
+
 }

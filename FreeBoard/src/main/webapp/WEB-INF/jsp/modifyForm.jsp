@@ -7,7 +7,12 @@
 
 <%
   String msg = (String) request.getAttribute("msg");
+  String pg = (String) request.getAttribute("page");
+  String sc = (String) request.getAttribute("searchCondition");
+  String kw = (String) request.getAttribute("keyword");
   BoardVO board = (BoardVO) request.getAttribute("boardvo");
+  // 세션정보.
+  String logId = (String) session.getAttribute("logId");
 %>
 
 <%if (msg != null) { %>
@@ -16,6 +21,9 @@
 
 <form action="modifyBoard.do" method="post">
   <input type="hidden" name="bno" value="<%=board.getBoardNo() %>">
+  <input type="hidden" name="page" value="<%=pg %>">
+  <input type="hidden" name="searchCondition" value="<%=sc %>">
+  <input type="hidden" name="keyword" value="<%=kw %>">
   <table class="table">
     <tr>
       <th>글번호</th><td><%=board.getBoardNo() %></td>
@@ -38,7 +46,7 @@
     </tr>
     <tr>
       <td colspan="4" align="center">
-        <input type="submit" value="저장" class="btn btn-success">
+        <input type="submit" value="저장" <%=logId != null && logId.equals(board.getWriter()) ? "" : "disabled" %> class="btn btn-success">
         <input type="reset" value="취소" class="btn btn-warning">
       </td>
     </tr>

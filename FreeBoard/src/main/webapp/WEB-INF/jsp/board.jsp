@@ -7,6 +7,9 @@
 
 <%
   BoardVO board = (BoardVO) request.getAttribute("boardvo");
+  String pg = (String) request.getAttribute("page");
+  String sc = (String) request.getAttribute("searchCondition");
+  String kw = (String) request.getAttribute("keyword");
   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 %>
 
@@ -47,7 +50,7 @@
 <script>
   document.querySelector('input[value="수정"]') //
     .addEventListener('click', function (e) {
-      location.href = 'modifyBoard.do?bno=<%=board.getBoardNo() %>';
+      location.href = 'modifyBoard.do?searchCondition=<%=sc %>&keyword=<%=kw %>&page=<%=pg %>&bno=<%=board.getBoardNo() %>';
     });
 
   document.querySelector('input[value="삭제"]') //

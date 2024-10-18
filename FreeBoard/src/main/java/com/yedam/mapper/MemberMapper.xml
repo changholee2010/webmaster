@@ -42,5 +42,13 @@
     from tbl_member
     where member_id = #{memberId}
   </select>
+  
+  <!-- 로그인 -->
+  <select id="loginMember" resultType="com.yedam.vo.MemberVO">
+    select *
+    from tbl_member
+    where member_id = #{id}
+    and   password = #{pw}
+  </select>
 
 </mapper>
