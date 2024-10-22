@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>글목록(boardList.jsp)</h3>
 
 <!-- 검색조건 -->
@@ -39,7 +38,7 @@
   <tbody>
     <c:forEach var="board" items="${boardList }" varStatus="status">
       <tr>
-        <td>&laquo;<c:out value="${status.count }" />&raquo;</td>
+        <td><c:out value="${status.count }" /></td>
         <td><c:out value="${board.boardNo }" /></td>
         <td><a href='board.do?searchCondition=${searchCondition }&keyword=${keyword }&page=${page.page }&bno=${board.boardNo }'>${board.title }</a></td>
         <td><c:out value="${board.writer }" /></td>
@@ -106,5 +105,3 @@
 
   </ul>
 </nav>
-
-<jsp:include page="../includes/footer.jsp"></jsp:include>
