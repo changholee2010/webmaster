@@ -31,7 +31,7 @@ fetch('memberJson.do')
 	.then(resolve => resolve.json())
 	.then(result => {
 		console.log(result);
-		makeList(result);
+		//makeList(result);
 	})
 	.catch(err => console.log(err))
 

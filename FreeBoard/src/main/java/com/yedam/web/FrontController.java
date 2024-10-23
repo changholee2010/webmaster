@@ -6,12 +6,30 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.JavaScriptCont;
+import com.yedam.control.board.AddBoardControl;
+import com.yedam.control.board.AddBoardForm;
+import com.yedam.control.board.BoardControl;
+import com.yedam.control.board.BoardListControl;
+import com.yedam.control.board.RemoveBoardControl;
+import com.yedam.control.member.AddMemberCont;
+import com.yedam.control.member.DelMemberCont;
+import com.yedam.control.member.LogOutControl;
+import com.yedam.control.member.LoginControl;
+import com.yedam.control.member.MemberAddControl;
+import com.yedam.control.member.MemberAddFormControl;
+import com.yedam.control.member.MemberJsonCont;
+import com.yedam.control.member.MemberListControl;
+import com.yedam.control.member.ModifyBoardControl;
+import com.yedam.control.reply.AddReplyCont;
+import com.yedam.control.reply.RemoveReplyCont;
+import com.yedam.control.reply.ReplyCountCont;
+import com.yedam.control.reply.ReplyListCont;
 
 //@WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -52,6 +70,12 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJson.do", new MemberJsonCont());
 		map.put("/addMemberJson.do", new AddMemberCont());
 		map.put("/removeMemberJson.do", new DelMemberCont());
+
+		// 댓글관련.
+		map.put("/replyList.do", new ReplyListCont());
+		map.put("/removeReply.do", new RemoveReplyCont());
+		map.put("/addReply.do", new AddReplyCont());
+		map.put("/replyCount.do", new ReplyCountCont());
 
 	}
 

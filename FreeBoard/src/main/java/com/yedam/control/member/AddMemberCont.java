@@ -1,4 +1,4 @@
-package com.yedam.web;
+package com.yedam.control.member;
 
 import java.io.IOException;
 
@@ -9,18 +9,26 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.service.MemberService;
 import com.yedam.service.MemberServiceImpl;
+import com.yedam.vo.MemberVO;
 
-public class DelMemberCont implements Control {
+public class AddMemberCont implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = req.getParameter("id");
+		// TODO id, name, phone, '1111'
+		MemberVO member = new MemberVO();
+		member.setMemberId(req.getParameter("id"));
+		member.setMemberName(req.getParameter("name"));
+		member.setPhone(req.getParameter("phone"));
+		member.setPassword("1111");
 
 		MemberService svc = new MemberServiceImpl();
-		if (svc.retireMember(id)) {
+		try {
+			svc.addMember(member);
+			// {"retCode": "OK"}
 			resp.getWriter().print("{\"retCode\": \"OK\"}");
-		} else {
+		} catch (Exception e) {
+			// {"retCode": "FAIL"}
 			resp.getWriter().print("{\"retCode\": \"FAIL\"}");
 		}
 
