@@ -14,4 +14,5 @@ public interface ReplyMapper {
 	ReplyVO selectReply(int replyNo);
 	//댓글건수.
 	int selectCount(int boardNo);
+	
 }

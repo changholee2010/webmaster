@@ -113,9 +113,8 @@ function createPageList(result) { // page = 2
 }
 
 // 댓글목록 출력하는 함수.
-showList();
+//showList();
 function showList() {
-	console.log('showList', page);
 	// 출력목록을 화면에서 지우고..
 	document.querySelectorAll('div.reply div.content li').forEach((li, idx) => {
 		if (idx > 0)

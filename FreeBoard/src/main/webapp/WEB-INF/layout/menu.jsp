@@ -16,7 +16,7 @@
    </c:otherwise>
   </c:choose>
   <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript.do">자바스크립트 연습</a>
-  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="chart.do">챠트</a>
   <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
  </div>
 </div>
