@@ -10,6 +10,8 @@
 
   <script src='./dist/index.global.js'></script>
   <script>
+    let modalArg = null; // arg 공유할 목적.
+    let calendar = null;
     document.addEventListener('DOMContentLoaded', async function () {
 
       var calendarEl = document.getElementById('calendar');
@@ -24,7 +26,7 @@
       //    eventData = result;
       //})
       //  .catch(err => console.log(err));
-      var calendar = new FullCalendar.Calendar(calendarEl, {
+      calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
@@ -35,33 +37,18 @@
         selectable: true,
         selectMirror: true,
         select: function (arg) {
-          var title = prompt('Event Title:');
-          if (title) {
+          //var title = prompt('Event Title:');
+          //if (title) {
+            modalShow(arg);
             console.log(arg); // start, end
-            fetch('addEvent.do?job=add&title=' + title + '&start=' + arg.startStr + '&end=' + arg.endStr)
-              .then(resolve => resolve.json())
-              .then(result => {
-                console.log(result);
-                if (result.retCode == 'OK') {
-                  // 화면에 출력.
-                  calendar.addEvent({
-                    title: title,
-                    start: arg.start,
-                    end: arg.end,
-                    allDay: arg.allDay
-                  }) // 화면출력.
-                } else if (result.retCode == 'FAIL') {
-                  alert('등록 에러.')
-                }
-              })
-              .catch(err => console.log(err));
 
             // title, start, end 값.
-          }
+          //}
           calendar.unselect()
         },
         eventClick: function (arg) {
           if (confirm('Are you sure you want to delete this event?')) {
+        	console.log(arg.event.title/startStr/endStr);
             arg.event.remove()
           }
         },
@@ -92,11 +79,41 @@
 <body>
 
   <div id='calendar'></div>
+  
+  <!-- 모달창 열기 -->
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- title, startStr, endStr -->
+        타이틀: <input type="text" id="title"><br>
+        시작일시: <input type="date" onchange="startChange(event)" id="start"><br>
+        종료일시: <input type="date" onchange="endChange(event)" id="end"><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="modalHide()">Close</button>
+        <button type="button" class="btn btn-primary" onclick="modalSave()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- bootstrap 스타일과 자바스크립트  -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
+  <script src="js/calendarModal.js"></script>
 </body>
 
 </html>
