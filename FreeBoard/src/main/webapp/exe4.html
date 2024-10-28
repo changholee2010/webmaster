@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Etc Traversing</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			$("button").on("click", function() {
+				$("li").add("p")							// 선택한 <li>요소의 집합에 <p>요소를 추가함.
+					.css({"border": "2px solid green"});	// 해당 요소의 CSS 스타일을 변경함.
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<h1>.add() 메소드</h1>
+	<ul>
+		<li>첫 번째 아이템이에요!</li>
+		<li>두 번째 아이템이에요!</li>
+		<li>세 번째 아이템이에요!</li>
+	</ul>
+	<p>첫 번째 단락이에요!</p>
+	<button>li 요소 집합에 p 요소를 추가</button>
+	
+</body>
+
+</html>

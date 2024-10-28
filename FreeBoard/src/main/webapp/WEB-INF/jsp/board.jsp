@@ -11,7 +11,6 @@
     list-style-type: none;
   }
 </style>
-<jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>상세페이지(board.jsp)</h3>
 
 <table class="table">
@@ -101,7 +100,6 @@
 </div>
 
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>
 
 <script>
   const bno = "${boardvo.boardNo }"; console.log(bno);
@@ -118,5 +116,7 @@
     });
 </script>
 
-<script src="js/replyService.js"></script>
-<script src="js/reply.js"></script>
+<!-- <script src="js/replyService.js"></script> -->
+<!-- <script src="js/reply.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/jreply.js"></script>

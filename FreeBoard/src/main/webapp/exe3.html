@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    // innerHTML => html(), innerText => text(), value = val()
+    $(function (e) {
+      // 추가버튼에 이벤트등록.
+      $('#addBtn').on('click', function (e) {
+        let id = $('.header input:eq(0)').val();
+        let name = $('.header input:eq(1)').val();
+        let point = $('.header input:eq(2)').val();
+        if (!id || !name || !point) {
+          alert('값을 입력하세요.');
+          return;
+        }
+        // 대상테이블
+        $('<tr />').append( // td만들기
+            $('<td />').text(id), //
+            $('<td />').text(name), //
+            $('<td />').text(point) //
+          )
+          .appendTo('.content tbody');
+      }) // end of click.
+    }) // end of $(function)
+  </script>
+</head>
+
+<body>
+  <div class="header">
+    <table border="2">
+      <tr>
+        <th>아이디</th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th>이름</th>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <th>점수</th>
+        <td><input type="number"></td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2">
+          <button id="addBtn">추가</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="content">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>점수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <td>값1</td><td>값2</td><td>값3</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

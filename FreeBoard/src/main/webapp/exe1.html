@@ -5,25 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-<style>
-  div.container {
-    width: 400px;
-    background-color: antiquewhite;
-  }
+  <style>
+    div.container {
+      width: 400px;
+      background-color: antiquewhite;
+    }
 
-  div.container span {
-    display: inline-block;
-    width: 90px;
-    background-color: yellow;
-    margin: 2px;
-  }
-</style>
+    div.container span {
+      display: inline-block;
+      width: 90px;
+      background-color: yellow;
+      margin: 2px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function (e) {
+      // 삭제버트 이벤트 등록.
+      document.querySelector('#delBtn').addEventListener('click', function (e) {
+        // 전체 span태그의 목록을 가져와서 입력값과 하나씩 비교한다.
+        let userVal = document.querySelector('#userValue').value;
+        document.querySelectorAll('div.container span').forEach(item => {
+          if (item.innerHTML == userVal) {
+            item.remove();
+            document.querySelector('#userValue').value = '';
+            document.querySelector('#userValue').focus();
+          }
+        })
+      })
+    })
+  </script>
+</head>
 
 <body>
   <input type="text" id="userValue"><button id="delBtn">삭제</button>
   <div class="container">
-    <div class="elem"></div>
     <span>Lorem</span>
     <span>ipsum</span>
     <span>dolor</span>
