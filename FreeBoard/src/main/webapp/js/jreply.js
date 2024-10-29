@@ -12,7 +12,7 @@ $.ajax('replyList.do?bno=' + bno + '&page=1')
 				$('<span />').addClass('col-sm-2').text(item.replyNo), // 글번호
 				$('<span />').addClass('col-sm-5').text(item.reply),  // 댓글내용
 				$('<span />').addClass('col-sm-2').text(item.replyer),  // 작성자
-				$('<span />').addClass('col-sm-2').append($('<button>삭제</button>')),  // 삭제버튼
+				$('<span />').addClass('col-sm-2').append($('<button>삭제</button>'))  // 삭제버튼
 			)
 				.appendTo($('div.content ul'));
 		});
