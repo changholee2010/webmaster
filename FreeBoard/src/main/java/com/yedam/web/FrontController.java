@@ -30,6 +30,7 @@ import com.yedam.control.member.MemberAddFormControl;
 import com.yedam.control.member.MemberJsonCont;
 import com.yedam.control.member.MemberListControl;
 import com.yedam.control.member.ModifyBoardControl;
+import com.yedam.control.product.ProductControl;
 import com.yedam.control.reply.AddReplyCont;
 import com.yedam.control.reply.RemoveReplyCont;
 import com.yedam.control.reply.ReplyCountCont;
@@ -88,6 +89,10 @@ public class FrontController extends HttpServlet {
 		map.put("/calendar.do", new CalendarCont());
 		map.put("/eventList.do", new EventControl());
 		map.put("/addEvent.do", new EventControl());
+		
+		// 상품.
+		map.put("/pmain.do", new ProductControl());
+		
 
 	}
 
