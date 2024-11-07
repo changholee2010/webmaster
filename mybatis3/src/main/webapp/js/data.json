@@ -1,0 +1,25 @@
+[{
+    "prodCode": "P001",
+    "prodName": "좋은상품01",
+    "price": 2000,
+    "qty": 5
+  },
+  {
+    "prodCode": "P002",
+    "prodName": "좋은상품02",
+    "price": 3000,
+    "qty": 15
+  },
+  {
+    "prodCode": "P003",
+    "prodName": "좋은상품03",
+    "price": 4000,
+    "qty": 8
+  },
+  {
+    "prodCode": "P004",
+    "prodName": "좋은상품04",
+    "price": 5000,
+    "qty": 11
+  }
+]
